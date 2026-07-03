@@ -2,7 +2,10 @@
 function calcular (){
     let ingresoFloat = recuperarFloat("txtIngresos")
     let egresoFlaat = recuperarFloat("txtEgresos")
-    let valorDisponible = calcularDisponible(ingresoFloat,egresoFlaat)
+    let valorDisponible = calcularDisponible(ingresoFloat,egresoFlaat);
     let valorDisponibleRedondeado=valorDisponible.toFixed(2);
-    mostrarEnSpam("spnDisponible",valorDisponibleRedondeado)
+    mostrarEnSpam("spnDisponible",valorDisponibleRedondeado);
+    let capacidadPago=calcularCapacidadPago(valorDisponible);
+    let CapacidadPagoRedondeada=capacidadPago.toFixed(2);
+    mostrarEnSpam("spnCapacidadPago",CapacidadPagoRedondeada)
 }
