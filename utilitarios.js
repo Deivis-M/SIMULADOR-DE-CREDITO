@@ -10,6 +10,12 @@ function recuperarFloat(idComponente){
     return valorFloat;
 }
 
+function recuperarInt(idComponente){
+    let valorTexto = recuperarTexto(idComponente);
+    let valorInt = parseInt(valorTexto);
+    return valorInt;
+}
+
 function mostrarEnSpam(idSpan,valor){
     let componente=document.getElementById(idSpan)
     componente.textContent=valor;   

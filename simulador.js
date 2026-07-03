@@ -7,5 +7,11 @@ function calcular (){
     mostrarEnSpam("spnDisponible",valorDisponibleRedondeado);
     let capacidadPago=calcularCapacidadPago(valorDisponible);
     let CapacidadPagoRedondeada=capacidadPago.toFixed(2);
-    mostrarEnSpam("spnCapacidadPago",CapacidadPagoRedondeada)
+    mostrarEnSpam("spnCapacidadPago",CapacidadPagoRedondeada);
+    let montoInt=recuperarInt("txtMonto")
+    let plazoAnioInt=recuperarInt("txtPlazo")
+    let tasaInteresInt= recuperarInt("txtTasaInteres")
+    let interesGenerado=calcularInteresSimple(montoInt,plazoAnioInt,tasaInteresInt)
+    let interesGeneradoRedondeado=interesGenerado.toFixed(2);
+    mostrarEnSpam("spnInteresPagar",interesGeneradoRedondeado);
 }

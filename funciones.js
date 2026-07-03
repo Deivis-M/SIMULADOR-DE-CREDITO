@@ -11,3 +11,8 @@ function calcularCapacidadPago(valorDisponible){
     let calculo = (50/100)*valorDisponible;
     return calculo
 }
+
+function calcularInteresSimple (monto,tasa,plazo){
+    let calculo=plazo*monto*(tasa/100)
+    return calculo
+}
