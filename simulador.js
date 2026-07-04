@@ -14,4 +14,8 @@ function calcular (){
     let interesGenerado=calcularInteresSimple(montoInt,plazoAnioInt,tasaInteresInt)
     let interesGeneradoRedondeado=interesGenerado.toFixed(2);
     mostrarEnSpam("spnInteresPagar",interesGeneradoRedondeado);
+    let totalPrestamo = calcularTotalPagar(montoInt,interesGenerado)
+    mostrarEnSpam("spnTotalPrestamo",totalPrestamo);
+
+
 }

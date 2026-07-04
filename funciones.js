@@ -16,3 +16,8 @@ function calcularInteresSimple (monto,tasa,plazo){
     let calculo=plazo*monto*(tasa/100)
     return calculo
 }
+
+function calcularTotalPagar (monto,interes){
+    let calculo= monto+interes+100
+    return calculo
+}
