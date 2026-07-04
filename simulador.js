@@ -1,5 +1,10 @@
 //AQUI EL JAVASCRIPT PARA MANIPULAR EL HTML
 function calcular (){
+    if(!validarFormulario()){
+        return;
+    }
+
+    //Todo tu código continúa igual...
     let ingresoFloat = recuperarFloat("txtIngresos")
     let egresoFlaat = recuperarFloat("txtEgresos")
     let valorDisponible = calcularDisponible(ingresoFloat,egresoFlaat);
@@ -10,8 +15,8 @@ function calcular (){
     mostrarEnSpam("spnCapacidadPago",CapacidadPagoRedondeada);
     let montoInt=recuperarInt("txtMonto")
     let plazoAnioInt=recuperarInt("txtPlazo")
-    let tasaInteresInt= recuperarInt("txtTasaInteres")
-    let interesGenerado=calcularInteresSimple(montoInt,plazoAnioInt,tasaInteresInt)
+    let tasaInteresInt= recuperarFloat("txtTasaInteres")
+    let interesGenerado=calcularInteresSimple(montoInt,tasaInteresInt,plazoAnioInt)
     let interesGeneradoRedondeado=interesGenerado.toFixed(2);
     mostrarEnSpam("spnInteresPagar",interesGeneradoRedondeado);
     let totalPrestamo = calcularTotalPagar(montoInt,interesGenerado)

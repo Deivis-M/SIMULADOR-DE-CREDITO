@@ -36,3 +36,141 @@ function aprobarCredito(capacidadPago,cuotaMensual){
         return false
     }
 }
+
+
+function limpiarErrores() {
+    mostrarEnSpam("spnErrorIngresos", "");
+    mostrarEnSpam("spnErrorEgresos", "");
+    mostrarEnSpam("spnErrorMonto", "");
+    mostrarEnSpam("spnErrorPlazo", "");
+    mostrarEnSpam("spnErrorTasa", "");
+}
+
+function validarIngresos() {
+    let ingreso = recuperarFloat("txtIngresos");
+
+    if (isNaN(ingreso)) {
+        mostrarEnSpam("spnErrorIngresos", "Ingrese un valor.");
+        return false;
+    }
+
+    if (ingreso <= 0) {
+        mostrarEnSpam("spnErrorIngresos", "Debe ser mayor que 0.");
+        return false;
+    }
+
+    if (ingreso > 100000) {
+        mostrarEnSpam("spnErrorIngresos", "Máximo permitido: 100000.");
+        return false;
+    }
+
+    return true;
+}
+
+function validarEgresos() {
+
+    let ingreso = recuperarFloat("txtIngresos");
+    let egreso = recuperarFloat("txtEgresos");
+
+    if (isNaN(egreso)) {
+        mostrarEnSpam("spnErrorEgresos", "Ingrese un valor.");
+        return false;
+    }
+
+    if (egreso < 0) {
+        mostrarEnSpam("spnErrorEgresos", "No puede ser negativo.");
+        return false;
+    }
+
+    if (egreso > ingreso) {
+        mostrarEnSpam("spnErrorEgresos", "No puede ser mayor que los ingresos.");
+        return false;
+    }
+
+    return true;
+}
+
+function validarMonto() {
+
+    let monto = recuperarInt("txtMonto");
+
+    if (isNaN(monto)) {
+        mostrarEnSpam("spnErrorMonto", "Ingrese un valor.");
+        return false;
+    }
+
+    if (monto < 500) {
+        mostrarEnSpam("spnErrorMonto", "Mínimo USD 500.");
+        return false;
+    }
+
+    if (monto > 100000) {
+        mostrarEnSpam("spnErrorMonto", "Máximo USD 100000.");
+        return false;
+    }
+
+    return true;
+}
+
+function validarPlazo() {
+
+    let plazo = recuperarInt("txtPlazo");
+
+    if (isNaN(plazo)) {
+        mostrarEnSpam("spnErrorPlazo", "Ingrese un valor.");
+        return false;
+    }
+
+    if (plazo < 1 || plazo > 30) {
+        mostrarEnSpam("spnErrorPlazo", "Debe estar entre 1 y 30 años.");
+        return false;
+    }
+
+    return true;
+}
+
+function validarTasa() {
+
+    let tasa = recuperarFloat("txtTasaInteres");
+
+    if (isNaN(tasa)) {
+        mostrarEnSpam("spnErrorTasa", "Ingrese un valor.");
+        return false;
+    }
+
+    if (tasa <= 0 || tasa > 50) {
+        mostrarEnSpam("spnErrorTasa", "Debe estar entre 0 y 50%.");
+        return false;
+    }
+
+    return true;
+}
+
+function validarFormulario() {
+
+    limpiarErrores();
+
+    let valido = true;
+
+    if (!validarIngresos()) {
+        valido = false;
+    }
+
+    if (!validarEgresos()) {
+        valido = false;
+    }
+
+    if (!validarMonto()) {
+        valido = false;
+    }
+
+    if (!validarPlazo()) {
+        valido = false;
+    }
+
+    if (!validarTasa()) {
+        valido = false;
+    }
+
+    return valido;
+}

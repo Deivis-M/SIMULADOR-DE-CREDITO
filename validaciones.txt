@@ -1,0 +1,17 @@
+N° 1:Tengo un proyecto de simulador de crédito con HTML, CSS y JS. La lógica ya funciona
+     NO modifiques las funciones existentes ni los IDs del HTML nesesito que agreges estas validaciones .
+    Funcionamiento:
+    -Solo al presionar "Calcular Crédito" funcione las validaciones
+    -Si hay error, detener cálculo
+    -Mensajes debajo del campo, en rojo y cursiva
+    -No usar alert()
+    -Limpiar errores al recalcular
+    Validaciones:
+     -Ingresos: obligatorio, número mayor a 0, máximo 100000, permite decimales,no permite letras,no permite vacio
+     -Egresos: obligatorio, número mayor o igual a 0, no mayor que ingresos,no permite letras,permite decimales,no permite vacio
+     -Monto: obligatorio, número entero, mínimo 500, máximo 100000,no permite letras,no permite vacio
+     -Plazo: obligatorio, número entero, mínimo 1, máximo 30,no permite vacio ni letras
+     -Tasa: obligatorio, número mayor a 0, máximo 50% , no permite vacio ni letras
+      Utiliza o crea nuevas funciones para poder generar todas estas validacion para que no se vea tan sobrecargado 
+      un solo lado,dame las partes del codigo que tengo que cambiar ,NO ME GENERES TODO EL CODIGO 
+    

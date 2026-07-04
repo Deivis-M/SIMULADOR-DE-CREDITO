@@ -10,6 +10,7 @@
     --esmeralda-suave: #E6F0EA;
     --terracota: #A34433;
     --terracota-suave: #F6E7E4;
+    --rojo-error: #D32F2F;
     --texto: #1C2B36;
     --texto-suave: #5B6B76;
 
@@ -188,6 +189,16 @@ body {
 
 .field {
     margin-bottom: 10px;
+}
+
+.field__error {
+    display: block;
+    min-height: 14px;
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--rojo-error);
 }
 
 .field-group {
