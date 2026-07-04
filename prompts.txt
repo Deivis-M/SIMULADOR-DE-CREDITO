@@ -1,5 +1,10 @@
- N°1:Actúa como un diseñador gráfico especializado en bancos o sistemas financieros, necesito que mejores la parte visual de este código, dale un aspecto empresarial, que sea una entidad ficticia pero que tenga su propia identidad, también tiene que ser responsive, no modifiques los ID de los componentes ni los borres y no juntes los archivos.
-
- N°2:si me gusta el diseño solo que hay un problem no me gusta que sea tan largo esque en pc se ve muy largo y me supongo que en telefono tambien
- N°3: crear un logo para esta página que combine con todo
- N°4: bien me guto mas ahora quiero que mejores la parte que dice analizando quiero que le dejes el color que esta ahorita cuando diga analizando ,cuando diga aprobado sea verde ,cuando diga rechazado sea rojo , aparte quiero que incluyas este imagen que seria el logo ,tambien que no se vea tan vacia los datos financieros , como ahora esta tipo horizontal en pc asle un poco mas grande pero que en celular todavia se vea bien ,lo que dice cuota mensual modificale para que sea un poco mas visible ya que es un valor importante  y por ultimo ponle icono sin exagerar
+ N°1: Actúa como un diseñador gráfico especializado en bancos o sistemas financieros. Necesito que mejores la parte visual de este código. Dale un aspecto empresarial, 
+      que sea una entidad ficticia pero que tenga su propia identidad. También tiene que ser responsivo .No modifiques los ID de los componentes, no los borres y 
+      no juntes los archivos.
+ N°2: Sí me gusta el diseño, solo que hay un problema: no me gusta que sea tan largo. Es que en PC se ve muy largo y supongo que en teléfono también.
+ N°3: Crear un logo para esta página que combine con todo.
+ N°4: Bien, me gustó más. Ahora quiero que mejores la parte que dice "Analizando". Quiero que conserve el color que tiene actualmente cuando diga "Analizando"; 
+      cuando diga "Aprobado", que sea de color verde; y cuando diga "Rechazado", que sea de color rojo. Aparte, quiero que incluyas esta imagen, que sería el logo. 
+      También quiero que los datos financieros no se vean tan vacíos. Como ahora están en formato horizontal en PC, hazlos un poco más grandes, pero asegúrate de que 
+      en celular todavía se vean bien. Lo que dice "Cuota mensual", modifícalo para que sea un poco más visible, ya que es un valor importante. Por último, agrega 
+      algunos íconos, pero sin exagerar.
