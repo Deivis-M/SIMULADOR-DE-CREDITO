@@ -16,6 +16,7 @@ function calcular (){
     mostrarEnSpam("spnInteresPagar",interesGeneradoRedondeado);
     let totalPrestamo = calcularTotalPagar(montoInt,interesGenerado)
     mostrarEnSpam("spnTotalPrestamo",totalPrestamo);
-
-
+    let cuotaMensual = calcularCuotaMensual(totalPrestamo,plazoAnioInt);
+    let cuotaMensualRedondeado=cuotaMensual.toFixed(2);
+    mostrarEnSpam("spnCuotaMensual",cuotaMensualRedondeado);
 }
