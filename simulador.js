@@ -19,4 +19,7 @@ function calcular (){
     let cuotaMensual = calcularCuotaMensual(totalPrestamo,plazoAnioInt);
     let cuotaMensualRedondeado=cuotaMensual.toFixed(2);
     mostrarEnSpam("spnCuotaMensual",cuotaMensualRedondeado);
+    let estadoCredito = aprobarCredito(capacidadPago,cuotaMensual);
+    if (estadoCredito==true){ mostrarEnSpam("spnEstadoCredito", "CREDITO APROBADO")}
+    else if (estadoCredito==false){mostrarEnSpam("spnEstadoCredito", "CREDITO RECHAZADO")}
 }
