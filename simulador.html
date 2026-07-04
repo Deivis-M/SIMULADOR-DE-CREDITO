@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Crédito</title>
+    <title>Cofre · Simulador de Crédito</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="simulador.css">
     <script src="utilitarios.js"></script>
     <script src="simulador.js"></script>
@@ -11,39 +16,203 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>Simulador de Crédito</h1>
+    <div class="page">
 
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
+        <header class="brand">
+            <img class="brand__mark" src="Logo_Simulador.png" alt="Cofre">
+            <div class="brand__text">
+                <span class="brand__name">Cofre</span>
+                <span class="brand__tagline">Banca digital · simulación de crédito</span>
+            </div>
+        </header>
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+        <main class="container">
 
-        <p>Disponible: <span id="spnDisponible"></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
+            <h1 class="container__title">Simulador de Crédito</h1>
 
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
+            <div class="container__grid">
 
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
+                <section class="ledger" aria-labelledby="titulo-datos">
+                    <h2 id="titulo-datos">
+                        <span class="ledger__eyebrow">01</span>
+                        <svg class="ledger__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.7"/>
+                            <circle cx="16.5" cy="14.5" r="1.3" fill="currentColor" stroke="none"/>
+                        </svg>
+                        Datos financieros
+                    </h2>
 
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="txtIngresos">
+                                <svg class="field__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                    <line x1="12" y1="18" x2="12" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <polyline points="7,11 12,6 17,11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Ingresos
+                            </label>
+                            <div class="field__input">
+                                <span class="field__prefix">$</span>
+                                <input type="text" id="txtIngresos" inputmode="decimal" placeholder="0.00">
+                            </div>
+                        </div>
 
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
+                        <div class="field">
+                            <label for="txtEgresos">
+                                <svg class="field__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                    <line x1="12" y1="6" x2="12" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <polyline points="7,13 12,18 17,13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Egresos
+                            </label>
+                            <div class="field__input">
+                                <span class="field__prefix">$</span>
+                                <input type="text" id="txtEgresos" inputmode="decimal" placeholder="0.00">
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="buttons">
-            <button id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
-        </div>
+                    <div class="summary-box">
+                        <div class="summary-box__item">
+                            <span class="summary-box__label">Disponible</span>
+                            <span class="ledger__value" id="spnDisponible">—</span>
+                        </div>
+                        <div class="summary-box__item">
+                            <span class="summary-box__label">Capacidad de pago mensual</span>
+                            <span class="ledger__value" id="spnCapacidadPago">—</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="ledger ledger--divider" aria-labelledby="titulo-solicitud">
+                    <h2 id="titulo-solicitud">
+                        <span class="ledger__eyebrow">02</span>
+                        <svg class="ledger__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                            <rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                            <line x1="8" y1="8" x2="16" y2="8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                            <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                            <line x1="8" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                        </svg>
+                        Solicitud de crédito
+                    </h2>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="txtMonto">
+                                <svg class="field__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                    <rect x="3" y="7" width="18" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                    <circle cx="12" cy="12" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                </svg>
+                                Monto
+                            </label>
+                            <div class="field__input">
+                                <span class="field__prefix">$</span>
+                                <input type="text" id="txtMonto" inputmode="decimal" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="txtPlazo">
+                                <svg class="field__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                    <rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                    <line x1="4" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1.8"/>
+                                    <line x1="8" y1="3" x2="8" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                    <line x1="16" y1="3" x2="16" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                                Plazo (años)
+                            </label>
+                            <input type="text" id="txtPlazo" inputmode="numeric" placeholder="0">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="txtTasaInteres">
+                            <svg class="field__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                                <circle cx="7" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <circle cx="17" cy="17" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                            Tasa de interés
+                        </label>
+                        <div class="field__input">
+                            <input type="text" id="txtTasaInteres" inputmode="decimal" placeholder="0.00">
+                            <span class="field__suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="ledger__row">
+                        <span class="ledger__label">Interés a pagar</span>
+                        <span class="ledger__value" id="spnInteresPagar">—</span>
+                    </div>
+                    <div class="ledger__row">
+                        <span class="ledger__label">Total préstamo</span>
+                        <span class="ledger__value" id="spnTotalPrestamo">—</span>
+                    </div>
+
+                    <div class="cuota-box">
+                        <svg class="cuota-box__icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                            <circle cx="12" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                            <path d="M12,20 a7,3 0 0 0 0,-0.01" fill="none" stroke="currentColor" stroke-width="1.7"/>
+                            <line x1="5" y1="9" x2="5" y2="16.5" stroke="currentColor" stroke-width="1.7"/>
+                            <line x1="19" y1="9" x2="19" y2="16.5" stroke="currentColor" stroke-width="1.7"/>
+                        </svg>
+                        <div class="cuota-box__text">
+                            <span class="cuota-box__label">Cuota mensual</span>
+                            <span class="cuota-box__value" id="spnCuotaMensual">—</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="verdict">
+                <span class="verdict__label">Estado de crédito</span>
+                <span class="verdict__stamp" id="spnEstadoCredito">ANALIZANDO...</span>
+            </div>
+
+            <div class="buttons">
+                <button id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
+                <button id="btnReiniciar" class="buttons__secondary">Reiniciar</button>
+            </div>
+
+        </main>
+
+        <footer class="disclaimer">
+            Cofre es una entidad financiera ficticia creada con fines demostrativos. Los resultados de esta simulación no constituyen una oferta de crédito real.
+            <p>Autor:Devis-M</p>
+        </footer>
+
     </div>
 
+    <script>
+        // Aplica el color del sello "Estado de crédito" según el texto que
+        // simulador.js / funciones.js coloquen en #spnEstadoCredito.
+        (function () {
+            var spnEstado = document.getElementById('spnEstadoCredito');
+            if (!spnEstado) return;
+
+            var CLASES = ['is-analizando', 'is-aprobado', 'is-rechazado'];
+
+            function actualizarEstado() {
+                var texto = spnEstado.textContent.trim().toUpperCase();
+
+                spnEstado.classList.remove.apply(spnEstado.classList, CLASES);
+
+                if (texto.indexOf('APROB') !== -1) {
+                    spnEstado.classList.add('is-aprobado');
+                } else if (texto.indexOf('RECHAZ') !== -1 || texto.indexOf('NEGAD') !== -1) {
+                    spnEstado.classList.add('is-rechazado');
+                } else {
+                    spnEstado.classList.add('is-analizando');
+                }
+            }
+
+            actualizarEstado();
+
+            var observador = new MutationObserver(actualizarEstado);
+            observador.observe(spnEstado, { childList: true, characterData: true, subtree: true });
+        })();
+    </script>
 </body>
 </html>

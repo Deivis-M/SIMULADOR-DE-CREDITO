@@ -1,70 +1,510 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
+:root {
+    /* Paleta — Cofre */
+    --tinta-noche: #10202F;
+    --tinta-azul: #17324A;
+    --papel: #F6F3EC;
+    --papel-linea: #DED6C4;
+    --bronce: #B08A5A;
+    --bronce-claro: #D9B98B;
+    --esmeralda: #2F6B4F;
+    --esmeralda-suave: #E6F0EA;
+    --terracota: #A34433;
+    --terracota-suave: #F6E7E4;
+    --texto: #1C2B36;
+    --texto-suave: #5B6B76;
+
+    --fuente-display: "Fraunces", Georgia, serif;
+    --fuente-texto: "IBM Plex Sans", Arial, sans-serif;
+    --fuente-datos: "IBM Plex Mono", "Courier New", monospace;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    background:
+        radial-gradient(circle at 15% 10%, rgba(176,138,90,0.10), transparent 45%),
+        var(--tinta-noche);
+    color: var(--texto);
+    margin: 0;
+    padding: clamp(16px, 3vw, 28px) 16px;
+}
+
+.page {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+@media (min-width: 720px) {
+    .page {
+        max-width: 680px;
+    }
+}
+
+/* ---------- Encabezado de marca ---------- */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px 16px;
+}
+
+.brand__mark {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.brand__name {
+    font-family: var(--fuente-display);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+.brand__tagline {
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    color: var(--bronce-claro);
+}
+
+/* ---------- Tarjeta principal ---------- */
 
 .container {
-    width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: var(--papel);
+    border-radius: 4px;
+    padding: clamp(20px, 4vw, 30px) clamp(20px, 4vw, 32px) 24px;
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.55);
+    border-top: 3px solid var(--bronce);
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+.container__title {
+    font-family: var(--fuente-display);
+    font-size: clamp(20px, 4vw, 25px);
+    font-weight: 600;
+    margin: 0 0 18px;
+    color: var(--tinta-noche);
 }
 
-h2 {
-    margin-top: 20px;
-    font-size: 18px;
+/* ---------- Grid de dos columnas en pantallas anchas ---------- */
+
+.container__grid {
+    display: block;
+}
+
+@media (min-width: 720px) {
+    .container__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 36px;
+        align-items: start;
+    }
+
+    .ledger--divider {
+        border-left: 1px solid var(--papel-linea);
+        padding-left: 36px;
+        margin-left: -1px;
+    }
+}
+
+/* ---------- Secciones tipo libro contable ---------- */
+
+.ledger {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--papel-linea);
+}
+
+@media (min-width: 720px) {
+    .ledger {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .ledger h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .field-group,
+    .field {
+        margin-bottom: 16px;
+    }
+
+    input {
+        padding: 11px 14px;
+        font-size: 15px;
+    }
+
+    .ledger__row {
+        font-size: 13.5px;
+        padding: 9px 0;
+    }
+}
+
+.ledger h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--fuente-display);
+    font-size: 15.5px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    color: var(--tinta-azul);
+}
+
+.ledger__icon {
+    color: var(--bronce);
+    flex-shrink: 0;
+}
+
+.ledger__eyebrow {
+    font-family: var(--fuente-datos);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bronce);
+    border: 1px solid var(--bronce);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.field__icon {
+    color: var(--bronce);
+    flex-shrink: 0;
 }
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    padding: 8px 12px;
+    font-family: var(--fuente-datos);
+    font-size: 14px;
+    color: var(--texto);
+    background-color: #FFFFFF;
+    border: 1px solid #C9C1B0;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-p {
-    margin-top: 10px;
+input::placeholder {
+    color: #B7AF9E;
 }
 
-span {
-    font-weight: bold;
-    color: #2c3e50;
+input:focus {
+    border-color: var(--bronce);
+    box-shadow: 0 0 0 3px rgba(176,138,90,0.22);
 }
 
-.buttons {
-    margin-top: 20px;
+.field__input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.field__input input {
+    padding-left: 26px;
+}
+
+.field__input .field__prefix {
+    position: absolute;
+    left: 12px;
+    font-family: var(--fuente-datos);
+    font-size: 14px;
+    color: var(--texto-suave);
+    pointer-events: none;
+}
+
+.field__input .field__suffix {
+    position: absolute;
+    right: 12px;
+    font-family: var(--fuente-datos);
+    font-size: 14px;
+    color: var(--texto-suave);
+    pointer-events: none;
+}
+
+.field__input input:has(+ .field__suffix) {
+    padding-right: 26px;
+}
+
+/* ---------- Resumen financiero (sección 01) ---------- */
+
+.summary-box {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid var(--papel-linea);
+    border-radius: 6px;
+}
+
+.summary-box__item {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--papel-linea);
+    font-size: 12.5px;
+}
+
+.summary-box__item:last-child {
+    border-bottom: none;
+}
+
+.summary-box__label {
+    color: var(--texto-suave);
+}
+
+@media (min-width: 720px) {
+    .summary-box {
+        margin-top: 20px;
+        padding: 18px 20px;
+    }
+
+    .summary-box__item {
+        font-size: 13.5px;
+        padding: 9px 0;
+    }
+}
+
+/* ---------- Filas de resultados (sección 02) ---------- */
+
+.ledger__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--papel-linea);
+    font-size: 12.5px;
+}
+
+.ledger__row:last-child {
+    border-bottom: none;
+}
+
+.ledger__label {
+    color: var(--texto-suave);
+}
+
+.ledger__value {
+    font-family: var(--fuente-datos);
+    font-weight: 600;
+    color: var(--tinta-noche);
+    white-space: nowrap;
+}
+
+/* ---------- Cuota mensual destacada ---------- */
+
+.cuota-box {
+    margin-top: 12px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--esmeralda-suave);
+    border-left: 3px solid var(--esmeralda);
+    border-radius: 6px;
+}
+
+.cuota-box__icon {
+    color: var(--esmeralda);
+    flex-shrink: 0;
+}
+
+.cuota-box__text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.cuota-box__label {
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--esmeralda);
+}
+
+.cuota-box__value {
+    font-family: var(--fuente-datos);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--tinta-noche);
+    line-height: 1.2;
+}
+
+@media (min-width: 720px) {
+    .cuota-box {
+        margin-top: 18px;
+        padding: 16px 20px;
+    }
+
+    .cuota-box__value {
+        font-size: 23px;
+    }
+}
+
+/* ---------- Sello de estado ---------- */
+
+.verdict {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--papel-linea);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.verdict__label {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.verdict__stamp {
+    font-family: var(--fuente-datos);
+    font-weight: 600;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 6px 14px;
+    transform: rotate(-3deg);
+    display: inline-block;
+    border: 2px solid var(--bronce);
+    color: var(--bronce);
+    background: rgba(176,138,90,0.06);
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.verdict__stamp.is-analizando {
+    border-color: var(--bronce);
+    color: var(--bronce);
+    background: rgba(176,138,90,0.06);
+}
+
+.verdict__stamp.is-aprobado {
+    border-color: var(--esmeralda);
+    color: var(--esmeralda);
+    background: rgba(47,107,79,0.08);
+}
+
+.verdict__stamp.is-rechazado {
+    border-color: var(--terracota);
+    color: var(--terracota);
+    background: rgba(163,68,51,0.08);
+}
+
+/* ---------- Botones ---------- */
+
+.buttons {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
 }
 
 button {
-    width: 48%;
-    padding: 10px;
+    flex: 1;
+    padding: 13px 10px;
+    font-family: var(--fuente-texto);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     border: none;
     border-radius: 5px;
-    background-color: #3498db;
-    color: white;
-    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease;
 }
 
-button:hover {
-    background-color: #2980b9;
+button:active {
+    transform: translateY(1px);
+}
+
+#btnCalcularCredito {
+    background-color: var(--tinta-azul);
+    color: #FFFFFF;
+}
+
+#btnCalcularCredito:hover {
+    background-color: var(--tinta-noche);
+}
+
+.buttons__secondary {
+    background-color: transparent;
+    color: var(--tinta-azul);
+    border: 1.5px solid var(--papel-linea);
+}
+
+.buttons__secondary:hover {
+    border-color: var(--bronce);
+    color: var(--bronce);
+}
+
+/* ---------- Pie de página ---------- */
+
+.disclaimer {
+    margin-top: 12px;
+    padding: 0 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 420px) {
+    .field-group {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
 }

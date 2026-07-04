@@ -1,0 +1,5 @@
+ N°1:Actúa como un diseñador gráfico especializado en bancos o sistemas financieros, necesito que mejores la parte visual de este código, dale un aspecto empresarial, que sea una entidad ficticia pero que tenga su propia identidad, también tiene que ser responsive, no modifiques los ID de los componentes ni los borres y no juntes los archivos.
+
+ N°2:si me gusta el diseño solo que hay un problem no me gusta que sea tan largo esque en pc se ve muy largo y me supongo que en telefono tambien
+ N°3: crear un logo para esta página que combine con todo
+ N°4: bien me guto mas ahora quiero que mejores la parte que dice analizando quiero que le dejes el color que esta ahorita cuando diga analizando ,cuando diga aprobado sea verde ,cuando diga rechazado sea rojo , aparte quiero que incluyas este imagen que seria el logo ,tambien que no se vea tan vacia los datos financieros , como ahora esta tipo horizontal en pc asle un poco mas grande pero que en celular todavia se vea bien ,lo que dice cuota mensual modificale para que sea un poco mas visible ya que es un valor importante  y por ultimo ponle icono sin exagerar
